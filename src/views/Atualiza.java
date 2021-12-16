@@ -4,11 +4,9 @@ import controllers.Aluno;
 import controllers.DataBase;
 import controllers.Pessoa;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class Atualiza {
-    Date hoje;
     DataBase dataBase = new DataBase();
     Scanner teclado = new Scanner(System.in);
     public void atualiza(){
