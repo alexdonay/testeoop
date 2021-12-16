@@ -35,7 +35,7 @@ public class Principal {
                     break;
                 case 3:
                     Exclui exclui = new Exclui();
-
+                    exclui.exclui();
 
                     break;
                 case 4:

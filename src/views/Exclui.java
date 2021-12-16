@@ -16,7 +16,7 @@ public class Exclui {
         }
     }
     //interface gráfica da listagem de dados
-    public void excluiAluno(){
+    private void excluiAluno(){
         DataBase dataBase = new DataBase();
         int id;
         System.out.println("Digite o ID do Aluno para excluir do cadastro");
@@ -24,7 +24,7 @@ public class Exclui {
         dataBase.excluiAlunoID(id);
 
     }
-    public void excluiPessoa(){
+    private void excluiPessoa(){
         DataBase dataBase = new DataBase();
         Scanner teclado = new Scanner(System.in);
         int id;

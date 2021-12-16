@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Atualiza {
-    Date hoje = new Date();
+    Date hoje;
     DataBase dataBase = new DataBase();
     Scanner teclado = new Scanner(System.in);
     public void atualiza(){
@@ -37,22 +37,27 @@ public class Atualiza {
         System.out.println("4 - Nota");
         System.out.println("5 - Torneo uma pessoa");
         opcao = teclado.nextInt();
+        teclado.nextLine();
         Aluno alunoTemp = dataBase.pesquisaAlunoID(id);
         switch (opcao){
             case 1:
+                System.out.println("Digite o novo nome: ");
                 alunoTemp.setNome(teclado.nextLine());
                 break;
             case 2:
+                System.out.println("Digite a nova data de Nascimento ");
                 alunoTemp.setDataNascimento(teclado.next());
                 break;
             case 3:
+                System.out.println("Digite o novo telefone ");
                 alunoTemp.setTelefone(teclado.next());
+                break;
             case 4:
+                System.out.println("Digite a nova nota ");
                 alunoTemp.setNota(teclado.nextDouble());
                 break;
             case 5:
                 Pessoa pessoatemp = (Pessoa)alunoTemp;
-                pessoatemp.setId(dataBase.pessoaUltimo());
                 dataBase.excluiAlunoID(id);
                 dataBase.adicionaPessoa(pessoatemp);
                 break;
@@ -74,15 +79,20 @@ public class Atualiza {
         System.out.println("4 - Torneo um Aluno");
         Pessoa pessoaTemp = dataBase.pesquisaPessoaID(id);
         opcao = teclado.nextInt();
+        teclado.nextLine();
         switch (opcao){
             case 1:
+                System.out.println("Digite o novo nome");
                 pessoaTemp.setNome(teclado.nextLine());
                 break;
             case 2:
+                System.out.println("Digite a nova data de nascimento");
                 pessoaTemp.setDataNascimento(teclado.next());
                 break;
             case 3:
+                System.out.println("Digite o novo telefone");
                 pessoaTemp.setTelefone(teclado.next());
+                break;
             case 4:
 
                 //Downcasting de forma primitiva

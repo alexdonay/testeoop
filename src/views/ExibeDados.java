@@ -22,10 +22,8 @@ public class ExibeDados {
         System.out.format("+----+-------------+----------+--------------+-------------+------------+-------+%n");
 
         for(Aluno i:dadosAluno){
-            //Instacia objetos
             Date hoje = new Date();
             SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
-            //Cria variáveis
             int tamanhoNome = i.getNome().length();
             int tamanhoTelefone = i.getTelefone().length();
             if(tamanhoNome >= 11){
@@ -35,10 +33,10 @@ public class ExibeDados {
             if (tamanhoTelefone >= 11) {
                 tamanhoTelefone = 11;
             }
-            System.out.format("| %-2s | %-11s |%-8s| %-12s | %-11s | %-10s |  %-4s |%n",
-                    dadosAluno.iterator().next().getId(),
+            System.out.format("| %-2s | %-11s |%-10s| %-12s | %-11s | %-10s |  %-4s |%n",
+                    i.getId(),
                     i.getNome().substring(0,tamanhoNome),
-                    i.getDataNascimento(),
+                    i.getDataNascimento().substring(0,10),
                     i.getTelefone().substring(0,tamanhoTelefone),
                     formatter.format(i.getDataCadastro(hoje)),
                     formatter.format(i.getDataAlteracao()),
@@ -58,10 +56,8 @@ public class ExibeDados {
         System.out.format("+----+-------------+----------+--------------+-------------+------------+%n");
 
         for(Pessoa i:dadosPessoa){
-            //Instacia objetos
             Date hoje = new Date();
             SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
-            //Cria variáveis
             int tamanhoNome = i.getNome().length();
             int tamanhoTelefone = i.getTelefone().length();
             if(tamanhoNome >= 11){
@@ -71,10 +67,10 @@ public class ExibeDados {
             if (tamanhoTelefone >= 11) {
                 tamanhoTelefone = 11;
             }
-            System.out.format("| %-2s | %-11s |%-8s| %-12s | %-11s | %-10s |%n",
+            System.out.format("| %-2s | %-11s |%-10s| %-12s | %-11s | %-10s |%n",
                     i.getId(),
                     i.getNome().substring(0,tamanhoNome),
-                    i.getDataNascimento(),
+                    i.getDataNascimento().substring(0,10),
                     i.getTelefone().substring(0,tamanhoTelefone),
                     formatter.format(i.getDataCadastro(hoje)),
                     formatter.format(i.getDataAlteracao()));
