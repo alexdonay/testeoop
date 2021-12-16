@@ -8,21 +8,17 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class PedeDados {
-    //Variaveis
     String nome;
     String dataNascimento;
     String telefone;
     String opNota;//String para definir a nota
     Double nota;
-    //Instancia objetos
-    Scanner teclado = new Scanner(System.in);
-    DataBase dataBase = new DataBase();
-    Date hoje = new Date();
+    final Scanner teclado = new Scanner(System.in);
+    final DataBase dataBase = new DataBase();
+    final Date hoje = new Date();
 
-     public void pedeDados(){
-
+    public void pedeDados(){
         boolean continua = true;
-
         while(continua){
             System.out.println("Digite nome do Aluno/Pessoa:");
             nome = teclado.nextLine();
@@ -32,7 +28,6 @@ public class PedeDados {
             telefone = teclado.next();
             System.out.println("Digite a nota, caso seja um aluno ou N para Pessoa");
             opNota = teclado.next();
-
             if (opNota.equalsIgnoreCase("n")){
                 Pessoa pessoa = new Pessoa(nome, telefone, dataNascimento, hoje, hoje);
                 dataBase.adicionaPessoa(pessoa);

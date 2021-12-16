@@ -8,10 +8,9 @@ import java.util.ArrayList;
 * Nela estão os métodos CRUD
  */
 public class DataBase {
-    Db data = Db.getInstance();
-
-    private ArrayList<Pessoa> pessoas= new ArrayList<>();
-    private ArrayList<Aluno> alunos = new ArrayList<>();
+    final Db data = Db.getInstance();
+    private final ArrayList<Pessoa> pessoas= new ArrayList<>();
+    private final ArrayList<Aluno> alunos = new ArrayList<>();
 
     public DataBase() {}
 
@@ -36,7 +35,6 @@ public class DataBase {
         String frase = "";
 
         for(int i = 0; i < data.alunos.size(); i++){
-
             if(data.alunos.get(i).getId() == id){
                 data.alunos.remove(i);
                 frase ="Aluno excluido com sucesso";
@@ -48,29 +46,24 @@ public class DataBase {
         System.out.println(frase);
     }
     public void atualizaAluno(int id, Aluno aluno){ //metodo update
-
         if(data.alunos.get(id)!=null){
             data.alunos.set(id,aluno);
         }
     }
     public ArrayList<Aluno> listaAluno(){
-
         return data.alunos;
     }
 
     public int alunoUltimo(){
-
         return data.alunos.size();
     }
     public void adicionaPessoa(Pessoa pessoa) { //metodo create
-
         pessoa.setId(data.pessoas.size());
         pessoa.setTipo(Pessoa.tipoPessoa.PESSOA);
         System.out.println("pessoa incluido com sucesso");
         data.pessoas.add(pessoa);
     }
     public Pessoa pesquisaPessoaID(int id){
-
         for(Pessoa i : data.pessoas){
             if(i.getId() == id){
                 return i;
@@ -79,7 +72,6 @@ public class DataBase {
         return null;
     }
     public void excluiPessoaID(int id){
-
         String frase = "";
         for(int i = 0; i < data.pessoas.size(); i++){
             if(data.pessoas.get(i).getId()==id){
@@ -92,11 +84,9 @@ public class DataBase {
         System.out.println(frase);
     }
     public void atualizaPessoa(int id, Pessoa pessoa){
-
             data.pessoas.set(id,pessoa);
     }
     public ArrayList<Pessoa> listaPessoa(){
-
         return data.pessoas;
     }
 }

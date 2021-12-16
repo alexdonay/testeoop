@@ -7,8 +7,8 @@ import controllers.Pessoa;
 import java.util.Scanner;
 
 public class Atualiza {
-    DataBase dataBase = new DataBase();
-    Scanner teclado = new Scanner(System.in);
+    final DataBase dataBase = new DataBase();
+    final Scanner teclado = new Scanner(System.in);
     public void atualiza(){
         System.out.println("Digite 1 para atualizar cadastro de aluno ou 2 para atualizar cadastro de não aluno");
         int opcao = teclado.nextInt();
@@ -50,7 +50,6 @@ public class Atualiza {
                 alunoTemp.setNota(teclado.nextDouble());
             }
             case 5 -> {
-
                 dataBase.excluiAlunoID(id);
                 dataBase.adicionaPessoa(alunoTemp);
             }
