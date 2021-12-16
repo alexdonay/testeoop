@@ -5,14 +5,14 @@ import controllers.DataBase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class ExibeDados {
     DataBase dataBase = new DataBase();
-
+    SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
     public void exibeDadosAluno(){
 
-        ArrayList<Aluno> dadosAluno = new ArrayList<>();
+        ArrayList<Aluno> dadosAluno;
         dadosAluno = dataBase.listaAluno();
 
         System.out.format("+----+-------------+----------+--------------+-------------+------------+-------+%n");
@@ -22,10 +22,11 @@ public class ExibeDados {
         System.out.format("+----+-------------+----------+--------------+-------------+------------+-------+%n");
 
         for(Aluno i:dadosAluno){
-            Date hoje = new Date();
-            SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
+
+
             int tamanhoNome = i.getNome().length();
             int tamanhoTelefone = i.getTelefone().length();
+            int tamanhoDataNascimento = i.getDataNascimento().length();
             if(tamanhoNome >= 11){
                 tamanhoNome = 11;
             }
@@ -36,9 +37,9 @@ public class ExibeDados {
             System.out.format("| %-2s | %-11s |%-10s| %-12s | %-11s | %-10s |  %-4s |%n",
                     i.getId(),
                     i.getNome().substring(0,tamanhoNome),
-                    i.getDataNascimento().substring(0,10),
+                    i.getDataNascimento().substring(0,tamanhoDataNascimento),
                     i.getTelefone().substring(0,tamanhoTelefone),
-                    formatter.format(i.getDataCadastro(hoje)),
+                    formatter.format(i.getDataCadastro()),
                     formatter.format(i.getDataAlteracao()),
                     i.getNota());
             System.out.format("+----+-------------+----------+--------------+-------------+------------+-------+%n");
@@ -46,7 +47,7 @@ public class ExibeDados {
     }
     public void exibeDadosPessoa(){
 
-        ArrayList<Pessoa> dadosPessoa = new ArrayList<>();
+        ArrayList<Pessoa> dadosPessoa;
         dadosPessoa = dataBase.listaPessoa();
 
         System.out.format("+----+-------------+----------+--------------+-------------+------------+%n");
@@ -56,8 +57,8 @@ public class ExibeDados {
         System.out.format("+----+-------------+----------+--------------+-------------+------------+%n");
 
         for(Pessoa i:dadosPessoa){
-            Date hoje = new Date();
-            SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
+
+            int tamanhoDataNascimento = i.getDataNascimento().length();
             int tamanhoNome = i.getNome().length();
             int tamanhoTelefone = i.getTelefone().length();
             if(tamanhoNome >= 11){
@@ -70,9 +71,9 @@ public class ExibeDados {
             System.out.format("| %-2s | %-11s |%-10s| %-12s | %-11s | %-10s |%n",
                     i.getId(),
                     i.getNome().substring(0,tamanhoNome),
-                    i.getDataNascimento().substring(0,10),
+                    i.getDataNascimento().substring(0,tamanhoDataNascimento),
                     i.getTelefone().substring(0,tamanhoTelefone),
-                    formatter.format(i.getDataCadastro(hoje)),
+                    formatter.format(i.getDataCadastro()),
                     formatter.format(i.getDataAlteracao()));
 
             System.out.format("+----+-------------+----------+--------------+-------------+------------+%n");

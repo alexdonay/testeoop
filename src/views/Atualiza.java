@@ -14,15 +14,10 @@ public class Atualiza {
     public void atualiza(){
         System.out.println("Digite 1 para atualizar cadastro de aluno ou 2 para atualizar cadastro de não aluno");
         int opcao = teclado.nextInt();
-        switch(opcao){
-            case 1:
-                atualizaAluno();
-                break;
-            case 2:
-                atualizaPessoa();
-                break;
-            default:
-                throw new IllegalStateException("Valor inexperado: " + opcao);
+        switch (opcao) {
+            case 1 -> atualizaAluno();
+            case 2 -> atualizaPessoa();
+            default -> throw new IllegalStateException("Valor inexperado: " + opcao);
         }
     }
     private void atualizaAluno(){
@@ -39,30 +34,29 @@ public class Atualiza {
         opcao = teclado.nextInt();
         teclado.nextLine();
         Aluno alunoTemp = dataBase.pesquisaAlunoID(id);
-        switch (opcao){
-            case 1:
+        switch (opcao) {
+            case 1 -> {
                 System.out.println("Digite o novo nome: ");
                 alunoTemp.setNome(teclado.nextLine());
-                break;
-            case 2:
+            }
+            case 2 -> {
                 System.out.println("Digite a nova data de Nascimento ");
                 alunoTemp.setDataNascimento(teclado.next());
-                break;
-            case 3:
+            }
+            case 3 -> {
                 System.out.println("Digite o novo telefone ");
                 alunoTemp.setTelefone(teclado.next());
-                break;
-            case 4:
+            }
+            case 4 -> {
                 System.out.println("Digite a nova nota ");
                 alunoTemp.setNota(teclado.nextDouble());
-                break;
-            case 5:
-                Pessoa pessoatemp = (Pessoa)alunoTemp;
+            }
+            case 5 -> {
+
                 dataBase.excluiAlunoID(id);
-                dataBase.adicionaPessoa(pessoatemp);
-                break;
-            default:
-                throw new IllegalStateException("valor inválido: " + opcao);
+                dataBase.adicionaPessoa(alunoTemp);
+            }
+            default -> throw new IllegalStateException("valor inválido: " + opcao);
         }
         if(opcao != 5)
         dataBase.atualizaAluno(id, alunoTemp);
@@ -80,20 +74,20 @@ public class Atualiza {
         Pessoa pessoaTemp = dataBase.pesquisaPessoaID(id);
         opcao = teclado.nextInt();
         teclado.nextLine();
-        switch (opcao){
-            case 1:
+        switch (opcao) {
+            case 1 -> {
                 System.out.println("Digite o novo nome");
                 pessoaTemp.setNome(teclado.nextLine());
-                break;
-            case 2:
+            }
+            case 2 -> {
                 System.out.println("Digite a nova data de nascimento");
                 pessoaTemp.setDataNascimento(teclado.next());
-                break;
-            case 3:
+            }
+            case 3 -> {
                 System.out.println("Digite o novo telefone");
                 pessoaTemp.setTelefone(teclado.next());
-                break;
-            case 4:
+            }
+            case 4 -> {
 
                 //Downcasting de forma primitiva
                 Pessoa pessoaTemporaria = dataBase.pesquisaPessoaID(id);
@@ -101,14 +95,13 @@ public class Atualiza {
                         pessoaTemporaria.getTelefone(),
                         pessoaTemporaria.getDataNascimento(),
                         pessoaTemporaria.getDataAlteracao(),
-                        pessoaTemporaria.getDataCadastro(hoje), 0.0D);
+                        pessoaTemporaria.getDataCadastro(), 0.0D);
                 System.out.println("Digite a nota do Aluno: ");
                 alunoTemporario.setNota(teclado.nextDouble());
                 dataBase.excluiPessoaID(id);
                 dataBase.adicionaAluno(alunoTemporario);
-                break;
-            default:
-                throw new IllegalStateException("valor inválido: " + opcao);
+            }
+            default -> throw new IllegalStateException("valor inválido: " + opcao);
         }
         if(opcao != 4)
             dataBase.atualizaPessoa(id, pessoaTemp);

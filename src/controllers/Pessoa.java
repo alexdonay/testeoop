@@ -5,7 +5,7 @@ import java.util.Date;
 public class Pessoa {
 
     private int id;
-    public enum tipoPessoa {ALUNO, PESSOA};
+    public enum tipoPessoa {ALUNO, PESSOA}
     private tipoPessoa tipo;
     private String nome;
     private String telefone;
@@ -66,7 +66,7 @@ public class Pessoa {
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    public Date getDataCadastro(Date hoje) {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
     public void setDataCadastro(Date dataCadastro) {
