@@ -5,6 +5,7 @@ import controllers.DataBase;
 import java.util.Scanner;
 
 public class Exclui {
+    final DataBase dataBase = new DataBase();
     final Scanner teclado = new Scanner(System.in);
     public void exclui(){
         System.out.println("Digite 1 para excluir um Aluno e 2 para excluir uma Pessoa");
@@ -17,7 +18,7 @@ public class Exclui {
     }
 
     private void excluiAluno(){
-        DataBase dataBase = new DataBase();
+
         int id;
         System.out.println("Digite o ID do Aluno para excluir do cadastro");
         id = teclado.nextInt();
@@ -25,8 +26,6 @@ public class Exclui {
     }
 
     private void excluiPessoa(){
-        DataBase dataBase = new DataBase();
-        Scanner teclado = new Scanner(System.in);
         int id;
         System.out.println("Digite o ID da Pessoa para excluir do cadastro");
         id = teclado.nextInt();

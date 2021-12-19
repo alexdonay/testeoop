@@ -3,24 +3,17 @@ package controllers;
 import java.util.Date;
 
 public class Pessoa {
+
     private int id;
-    public enum tipoPessoa {ALUNO, PESSOA}
     private tipoPessoa tipo;
+    public enum tipoPessoa {ALUNO, PESSOA}
     private String nome;
     private String telefone;
     private String dataNascimento;
-    private Date dataCadastro;
-    private Date dataAlteracao;
+    final private Date dataCadastro;
+    final private Date dataAlteracao;
 
-    public Pessoa(int id, String nome, String dataNascimento, Date dataCadastro, Date dataAlteracao, tipoPessoa tipo, String telefone) {
-        this.id = id;
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.dataCadastro = dataCadastro;
-        this.dataAlteracao = dataAlteracao;
-        this.telefone = telefone;
-        this.tipo = tipo;
-    }
+
 
     public Pessoa(String nome, String telefone, String dataNascimento, Date dataCadastro, Date dataAlteracao) {
         this.nome = nome;
@@ -29,7 +22,7 @@ public class Pessoa {
         this.dataAlteracao = dataAlteracao;
         this.telefone = telefone;
     }
-    public Pessoa(){}
+
 
     public String getTelefone() {
         return telefone;
@@ -44,10 +37,6 @@ public class Pessoa {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public tipoPessoa getTipo() {
-        return tipo;
     }
 
     public void setTipo(tipoPessoa tipo) {
@@ -73,15 +62,7 @@ public class Pessoa {
     public Date getDataCadastro() {
         return dataCadastro;
     }
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
     public Date getDataAlteracao() {
         return dataAlteracao;
-    }
-
-    public void setDataAlteracao(Date dataAlteracao) {
-        this.dataAlteracao = dataAlteracao;
     }
 }

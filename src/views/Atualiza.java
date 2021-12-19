@@ -9,9 +9,11 @@ import java.util.Scanner;
 public class Atualiza {
     final DataBase dataBase = new DataBase();
     final Scanner teclado = new Scanner(System.in);
+    int opcao;
+    int id;
     public void atualiza(){
         System.out.println("Digite 1 para atualizar cadastro de aluno ou 2 para atualizar cadastro de não aluno");
-        int opcao = teclado.nextInt();
+        opcao = teclado.nextInt();
         switch (opcao) {
             case 1 -> atualizaAluno();
             case 2 -> atualizaPessoa();
@@ -19,8 +21,7 @@ public class Atualiza {
         }
     }
     private void atualizaAluno(){
-        int opcao;
-        int id;
+
         System.out.println("Digite o ID do Aluno para Alterar");
         id = teclado.nextInt();
         System.out.println("Digite uma das opcoes para Atualizar");
@@ -59,8 +60,6 @@ public class Atualiza {
         dataBase.atualizaAluno(id, alunoTemp);
     }
     private void atualizaPessoa(){
-        int opcao;
-        int id;
         System.out.println("Digite o ID da Pessoa para Alterar");
         id = teclado.nextInt();
         System.out.println("Digite uma das opcoes para atualizar");
@@ -85,7 +84,6 @@ public class Atualiza {
                 pessoaTemp.setTelefone(teclado.next());
             }
             case 4 -> {
-
                 //Downcasting de forma primitiva
                 Pessoa pessoaTemporaria = dataBase.pesquisaPessoaID(id);
                 Aluno alunoTemporario = new Aluno(pessoaTemporaria.getNome(),

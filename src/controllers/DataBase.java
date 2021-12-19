@@ -9,8 +9,7 @@ import java.util.ArrayList;
  */
 public class DataBase {
     final Db data = Db.getInstance();
-    private final ArrayList<Pessoa> pessoas= new ArrayList<>();
-    private final ArrayList<Aluno> alunos = new ArrayList<>();
+    // --Commented out by Inspection (16/12/2021 16:30):private final ArrayList<Aluno> alunos = new ArrayList<>();
 
     public DataBase() {}
 
@@ -54,9 +53,6 @@ public class DataBase {
         return data.alunos;
     }
 
-    public int alunoUltimo(){
-        return data.alunos.size();
-    }
     public void adicionaPessoa(Pessoa pessoa) { //metodo create
         pessoa.setId(data.pessoas.size());
         pessoa.setTipo(Pessoa.tipoPessoa.PESSOA);
