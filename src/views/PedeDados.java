@@ -63,19 +63,10 @@ public class PedeDados {
             boolean validaSeparador2 = (data.substring(5,6).equalsIgnoreCase(separador));
             boolean validaTamanhoTotal = (data.length()==10);
             switch (mes) {
-                case 1:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 10:
-                case 12:
+                case 1,3,5,7,8,10,12:
                     validaDia = dia <= 31;
                     break;
-                case 4:
-                case 6:
-                case 9:
-                case 11:
+                case 4,6,9,11:
                     validaDia = dia <= 30;
                     break;
                 case 2:
@@ -99,10 +90,6 @@ public class PedeDados {
         }
     }
     public boolean bisexto(int ano) {
-        if ((ano % 4 == 0) && !(ano % 100 == 0)&& !(ano % 400 == 0)) {
-        return true;
-        }else{
-            return false;
-        }
+        return (ano % 4 == 0) && !(ano % 100 == 0) && !(ano % 400 == 0);
     }
 }
