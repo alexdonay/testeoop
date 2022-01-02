@@ -4,9 +4,11 @@ import controllers.Aluno;
 import controllers.DataBase;
 import controllers.Pessoa;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Atualiza {
+    final Date hoje = new Date();
     final DataBase dataBase = new DataBase();
     final Scanner teclado = new Scanner(System.in);
     int opcao;
@@ -33,6 +35,7 @@ public class Atualiza {
         opcao = teclado.nextInt();
         teclado.nextLine();
         Aluno alunoTemp = dataBase.pesquisaAlunoID(id);
+        alunoTemp.setDataAlteracao(hoje);
         switch (opcao) {
             case 1 -> {
                 System.out.println("Digite o novo nome: ");
@@ -89,7 +92,7 @@ public class Atualiza {
                 Aluno alunoTemporario = new Aluno(pessoaTemporaria.getNome(),
                         pessoaTemporaria.getTelefone(),
                         pessoaTemporaria.getDataNascimento(),
-                        pessoaTemporaria.getDataAlteracao(),
+                        hoje,
                         pessoaTemporaria.getDataCadastro(), 0.0D);
                 System.out.println("Digite a nota do Aluno: ");
                 alunoTemporario.setNota(teclado.nextDouble());

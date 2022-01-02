@@ -11,9 +11,7 @@ public class Pessoa {
     private String telefone;
     private String dataNascimento;
     final private Date dataCadastro;
-    final private Date dataAlteracao;
-
-
+    private Date dataAlteracao;
 
     public Pessoa(String nome, String telefone, String dataNascimento, Date dataCadastro, Date dataAlteracao) {
         this.nome = nome;
@@ -27,10 +25,10 @@ public class Pessoa {
     public String getTelefone() {
         return telefone;
     }
+
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
     public int getId() {
         return id;
     }
@@ -62,7 +60,12 @@ public class Pessoa {
     public Date getDataCadastro() {
         return dataCadastro;
     }
+
     public Date getDataAlteracao() {
         return dataAlteracao;
+    }
+
+    public void setDataAlteracao(Date dataAlteracao) {
+        this.dataAlteracao = dataAlteracao;
     }
 }

@@ -2,17 +2,13 @@ package controllers;
 
 import database.Db;
 import java.util.ArrayList;
-
 /*
 *Esta classe é responsável por controlar o banco de dados
 * Nela estão os métodos CRUD
  */
 public class DataBase {
     final Db data = Db.getInstance();
-    // --Commented out by Inspection (16/12/2021 16:30):private final ArrayList<Aluno> alunos = new ArrayList<>();
-
     public DataBase() {}
-
      public void adicionaAluno(Aluno aluno) { //metodo create
         aluno.setId(data.alunos.size());
         aluno.setTipo(Aluno.tipoPessoa.ALUNO);
@@ -40,7 +36,6 @@ public class DataBase {
             }else{
                 frase = "Aluno não encontrado";
             }
-
         }
         System.out.println(frase);
     }

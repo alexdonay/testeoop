@@ -22,8 +22,12 @@ public class PedeDados {
         while(continua){
             System.out.println("Digite nome do Aluno/Pessoa:");
             nome = teclado.nextLine();
-            System.out.println("Digite a data de nascimento do Aluno/Pessoa (dd/mm/aaaa):");
-            dataNascimento = teclado.next();
+            do{
+                System.out.println("Digite a data de nascimento do Aluno/Pessoa (dd/mm/aaaa):");
+                dataNascimento = teclado.next();
+
+            }while (!validaData(dataNascimento));
+
             System.out.println("Digite o número de telefone:");
             telefone = teclado.next();
             System.out.println("Digite a nota, caso seja um aluno ou N para Pessoa");
@@ -33,10 +37,72 @@ public class PedeDados {
                 dataBase.adicionaPessoa(pessoa);
             }else{
                 nota = Double.parseDouble(opNota);
+                while(nota>10||nota<0){
+                    System.out.println("A nota não pode ser menor Zero ou maior que 10");
+                    System.out.println("Digite uma nota válida");
+                    opNota = teclado.next();
+                    nota = Double.parseDouble(opNota);
+                }
                 Aluno aluno = new Aluno(nome, telefone, dataNascimento, hoje, hoje, nota);
                 dataBase.adicionaAluno(aluno);
             }
             continua = false;
+        }
+    }
+    public boolean validaData(String data) {
+        int dia;
+        int mes;
+        int ano;
+        String separador = "/";
+        try{
+            dia = Integer.parseInt(data.substring(0,2));
+            mes = Integer.parseInt(data.substring(3,5));
+            ano = Integer.parseInt(data.substring(6,10));
+            boolean validaDia = false;
+            boolean validaSeparador1 = (data.substring(2,3).equalsIgnoreCase(separador));
+            boolean validaSeparador2 = (data.substring(5,6).equalsIgnoreCase(separador));
+            boolean validaTamanhoTotal = (data.length()==10);
+            switch (mes) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    validaDia = dia <= 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    validaDia = dia <= 30;
+                    break;
+                case 2:
+                    if(bisexto(ano)){
+                        validaDia = dia <= 29;
+                    }else{
+                        validaDia = dia <= 28;
+                    }
+                    break;
+            }
+            if(validaDia&validaSeparador1&validaSeparador2&validaTamanhoTotal){
+                return true;
+            }else{
+                System.out.println("Data Inválida");
+                return false;
+            }
+
+        }catch (Exception e){
+            System.out.println("Data inválida");
+            return false;
+        }
+    }
+    public boolean bisexto(int ano) {
+        if ((ano % 4 == 0) && !(ano % 100 == 0)&& !(ano % 400 == 0)) {
+        return true;
+        }else{
+            return false;
         }
     }
 }
