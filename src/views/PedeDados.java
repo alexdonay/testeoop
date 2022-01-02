@@ -25,9 +25,7 @@ public class PedeDados {
             do{
                 System.out.println("Digite a data de nascimento do Aluno/Pessoa (dd/mm/aaaa):");
                 dataNascimento = teclado.next();
-
             }while (!validaData(dataNascimento));
-
             System.out.println("Digite o número de telefone:");
             telefone = teclado.next();
             System.out.println("Digite a nota, caso seja um aluno ou N para Pessoa");
