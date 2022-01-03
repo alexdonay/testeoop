@@ -56,38 +56,37 @@ public class PedeDados {
             dia = Integer.parseInt(data.substring(0,2));
             mes = Integer.parseInt(data.substring(3,5));
             ano = Integer.parseInt(data.substring(6,10));
-            boolean validaDia = false;
-            boolean validaSeparador1 = (data.substring(2,3).equalsIgnoreCase(separador));
-            boolean validaSeparador2 = (data.substring(5,6).equalsIgnoreCase(separador));
-            boolean validaTamanhoTotal = (data.length()==10);
-            switch (mes) {
-                case 1,3,5,7,8,10,12:
-                    validaDia = dia <= 31;
-                    break;
-                case 4,6,9,11:
-                    validaDia = dia <= 30;
-                    break;
-                case 2:
-                    if(bisexto(ano)){
-                        validaDia = dia <= 29;
-                    }else{
-                        validaDia = dia <= 28;
-                    }
-                    break;
-            }
-            if(validaDia&validaSeparador1&validaSeparador2&validaTamanhoTotal){
-                return true;
-            }else{
-                System.out.println("Data Inválida");
-                return false;
-            }
-
         }catch (Exception e){
             System.out.println("Data inválida");
             return false;
         }
+        boolean validaDia = false;
+        boolean validaSeparador1 = (data.substring(2,3).equalsIgnoreCase(separador));
+        boolean validaSeparador2 = (data.substring(5,6).equalsIgnoreCase(separador));
+        boolean validaTamanhoTotal = (data.length()==10);
+        switch (mes) {
+            case 1,3,5,7,8,10,12:
+                validaDia = dia <= 31;
+                break;
+            case 4,6,9,11:
+                validaDia = dia <= 30;
+                break;
+            case 2:
+                if(bisexto(ano)){
+                    validaDia = dia <= 29;
+                }else{
+                    validaDia = dia <= 28;
+                }
+                break;
+        }
+        if(validaDia&validaSeparador1&validaSeparador2&validaTamanhoTotal){
+            return true;
+        }else{
+            System.out.println("Data Inválida");
+            return false;
+        }
     }
     public boolean bisexto(int ano) {
-        return (ano % 4 == 0) && !(ano % 100 == 0) && !(ano % 400 == 0);
+        return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
     }
 }
