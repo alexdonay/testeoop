@@ -3,7 +3,6 @@ package controllers;
 import java.util.Date;
 
 public class Pessoa {
-
     private int id;
     private tipoPessoa tipo;
     public enum tipoPessoa {ALUNO, PESSOA}
@@ -21,7 +20,6 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
-
     public String getTelefone() {
         return telefone;
     }
@@ -29,6 +27,7 @@ public class Pessoa {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
     public int getId() {
         return id;
     }

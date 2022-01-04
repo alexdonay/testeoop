@@ -1,4 +1,5 @@
 package views;
+
 import controllers.Pessoa;
 import controllers.Aluno;
 import controllers.DataBase;
@@ -6,11 +7,9 @@ import controllers.DataBase;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-
 public class ExibeDados {
     final DataBase dataBase = new DataBase();
     final SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
-
     public void exibeDadosAluno(){
         ArrayList<Aluno> dadosAluno;
         dadosAluno = dataBase.listaAluno();

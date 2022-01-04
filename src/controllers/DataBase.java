@@ -6,6 +6,7 @@ import java.util.ArrayList;
 *Esta classe é responsável por controlar o banco de dados
 * Nela estão os métodos CRUD
  */
+
 public class DataBase {
     final Db data = Db.getInstance();
     public DataBase() {}
@@ -39,11 +40,13 @@ public class DataBase {
         }
         System.out.println(frase);
     }
+
     public void atualizaAluno(int id, Aluno aluno){ //metodo update
         if(data.alunos.get(id)!=null){
             data.alunos.set(id,aluno);
         }
     }
+
     public ArrayList<Aluno> listaAluno(){
         return data.alunos;
     }
@@ -54,6 +57,7 @@ public class DataBase {
         System.out.println("pessoa incluido com sucesso");
         data.pessoas.add(pessoa);
     }
+
     public Pessoa pesquisaPessoaID(int id){
         for(Pessoa i : data.pessoas){
             if(i.getId() == id){
@@ -62,6 +66,7 @@ public class DataBase {
         }
         return null;
     }
+
     public void excluiPessoaID(int id){
         String frase = "";
         for(int i = 0; i < data.pessoas.size(); i++){
@@ -74,9 +79,11 @@ public class DataBase {
         }
         System.out.println(frase);
     }
+
     public void atualizaPessoa(int id, Pessoa pessoa){
             data.pessoas.set(id,pessoa);
     }
+
     public ArrayList<Pessoa> listaPessoa(){
         return data.pessoas;
     }

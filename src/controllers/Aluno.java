@@ -3,7 +3,6 @@ package controllers;
 import java.util.Date;
 
 public class Aluno extends Pessoa{
-
     private Double nota;
 
     public Aluno(String nome, String telefone, String dataNascimento, Date dataCadastro, Date dataAlteracao, Double nota) {

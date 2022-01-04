@@ -13,7 +13,7 @@ public class Atualiza {
     final Scanner teclado = new Scanner(System.in);
     int opcao;
     int id;
-    public void atualiza(){
+      public void atualiza(){
         System.out.println("Digite 1 para atualizar cadastro de aluno ou 2 para atualizar cadastro de não aluno");
         opcao = teclado.nextInt();
         switch (opcao) {
@@ -22,8 +22,8 @@ public class Atualiza {
             default -> throw new IllegalStateException("Valor inexperado: " + opcao);
         }
     }
-    private void atualizaAluno(){
 
+    private void atualizaAluno(){
         System.out.println("Digite o ID do Aluno para Alterar");
         id = teclado.nextInt();
         System.out.println("Digite uma das opcoes para Atualizar");
@@ -62,6 +62,7 @@ public class Atualiza {
         if(opcao != 5)
         dataBase.atualizaAluno(id, alunoTemp);
     }
+
     private void atualizaPessoa(){
         System.out.println("Digite o ID da Pessoa para Alterar");
         id = teclado.nextInt();
@@ -101,6 +102,7 @@ public class Atualiza {
             }
             default -> throw new IllegalStateException("valor inválido: " + opcao);
         }
+
         if(opcao != 4)
             dataBase.atualizaPessoa(id, pessoaTemp);
     }
