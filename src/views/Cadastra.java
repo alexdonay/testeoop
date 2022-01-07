@@ -50,5 +50,4 @@ public class Cadastra {
             continua = false;
         }
     }
-
 }
