@@ -13,7 +13,6 @@ public class validaData {
             mes = localDate.getDayOfMonth();
             ano = localDate.getYear();
         }catch (Exception e){
-            System.out.println("Data inválida");
             return false;
         }
         boolean validaDia;
@@ -31,13 +30,9 @@ public class validaData {
             default:
                 validaDia = dia <= 31;
         }
-        if(validaDia){
-            return true;
-        }else{
-            System.out.println("Data Inválida");
-            return false;
+        return  validaDia;
         }
-    }
+
     public boolean bisexto(int ano) {
         return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
     }

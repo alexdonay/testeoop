@@ -5,13 +5,13 @@ import controllers.Aluno;
 import controllers.DataBase;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 public class ExibeDados {
     final DataBase dataBase = new DataBase();
     final SimpleDateFormat formatter =  new  SimpleDateFormat ( "dd/MM/yyyy" );
     public void exibeDadosAluno(){
-        ArrayList<Aluno> dadosAluno;
+        List<Aluno> dadosAluno;
         dadosAluno = dataBase.listaAluno();
         System.out.format("+----+-------------+----------+--------------+-------------+------------+-------+%n");
         System.out.format("|                              Cadastros de Alunos                              |%n");
@@ -44,7 +44,7 @@ public class ExibeDados {
     }
 
     public void exibeDadosPessoa(){
-        ArrayList<Pessoa> dadosPessoa;
+        List<Pessoa> dadosPessoa;
         dadosPessoa = dataBase.listaPessoa();
         System.out.format("+----+-------------+----------+--------------+-------------+------------+%n");
         System.out.format("|                            Cadastros de Pessoas                       |%n");

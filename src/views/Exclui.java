@@ -18,17 +18,34 @@ public class Exclui {
     }
 
     private void excluiAluno(){
-
         int id;
-        System.out.println("Digite o ID do Aluno para excluir do cadastro");
-        id = teclado.nextInt();
-        dataBase.excluiAlunoID(id);
+        boolean valida = false;
+        while (!valida){
+            try{
+                System.out.println("Digite o ID do Aluno para excluir do cadastro");
+                teclado.nextLine();
+                id = teclado.nextInt();
+                dataBase.excluiAlunoID(id);
+                valida = true;
+                }catch (Exception e){
+                System.out.println("Aluno inexistente");
+            }
+        }
     }
 
     private void excluiPessoa(){
         int id;
-        System.out.println("Digite o ID da Pessoa para excluir do cadastro");
-        id = teclado.nextInt();
-        dataBase.excluiPessoaID(id);
+        boolean valida = false;
+        while (!valida ){
+            try{
+                System.out.println("Digite o ID da Pessoa para excluir do cadastro");
+                teclado.nextLine();
+                id = teclado.nextInt();
+                dataBase.excluiPessoaID(id);
+                valida = true;
+            }catch (Exception e){
+                System.out.println("Pessoa inexistente");
+            }
+        }
     }
 }

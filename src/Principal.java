@@ -14,14 +14,14 @@ public class Principal {
         while (continua) {
             System.out.println("Digite: 1 para cadastrar, 2 para listar cadastros, 3 para excluir, 4 para atualizar ou 0 para sair:"); //tela iniicial do programa
             try {
-
                 opcao = teclado.nextInt();
-
                 switch (opcao) {
-                    case 0 -> continua = false;
+                    case 0 -> {
+                        continua = false;
+                     }
                     case 1 -> {
-                        PedeDados pedeDados = new PedeDados();
-                        pedeDados.pedeDados();
+                        Cadastra cadastra = new Cadastra();
+                        cadastra.pedeDados();
                     }
                     case 2 -> {
                         ExibeDados exibeDados = new ExibeDados();
@@ -37,13 +37,11 @@ public class Principal {
                         atualiza.atualiza();
                     }
                     default -> {
-                        continua = true;
                         System.out.println("Digite um valor válido");
                     }
                 }
             } catch (Exception e) {
                 teclado.nextLine();
-                continua = true;
                 System.out.println("Digite um valor válido");
 
             }

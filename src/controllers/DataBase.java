@@ -1,7 +1,7 @@
 package controllers;
 
 import database.Db;
-import java.util.ArrayList;
+import java.util.List;
 /*
 *Esta classe é responsável por controlar o banco de dados
 * Nela estão os métodos CRUD
@@ -13,32 +13,21 @@ public class DataBase {
      public void adicionaAluno(Aluno aluno) { //metodo create
         aluno.setId(data.alunos.size());
         aluno.setTipo(Aluno.tipoPessoa.ALUNO);
-        System.out.println("aluno incluido com sucesso");
+        System.out.println("Aluno incluido com sucesso");
         data.alunos.add(aluno);
     }
 
     public Aluno pesquisaAlunoID(int id){
-
-        for(Aluno i : data.alunos){
-            if(i.getId()== id){
-                return i;
-            }
-        }
-        return null;
+        return data.alunos.get(id);
     }
 
     public void excluiAlunoID(int id){
-        String frase = "";
-
-        for(int i = 0; i < data.alunos.size(); i++){
-            if(data.alunos.get(i).getId() == id){
-                data.alunos.remove(i);
-                frase ="Aluno excluido com sucesso";
-            }else{
-                frase = "Aluno não encontrado";
-            }
+        if(data.alunos.get(id) != null){
+            data.alunos.remove(id);
+            System.out.println("Aluno excluido com sucesso");
+        }else{
+            System.out.println("Aluno não encontrado");
         }
-        System.out.println(frase);
     }
 
     public void atualizaAluno(int id, Aluno aluno){ //metodo update
@@ -47,7 +36,7 @@ public class DataBase {
         }
     }
 
-    public ArrayList<Aluno> listaAluno(){
+    public List<Aluno> listaAluno(){
         return data.alunos;
     }
 
@@ -59,32 +48,23 @@ public class DataBase {
     }
 
     public Pessoa pesquisaPessoaID(int id){
-        for(Pessoa i : data.pessoas){
-            if(i.getId() == id){
-                return i;
-            }
-        }
-        return null;
+        return data.pessoas.get(id);
     }
 
     public void excluiPessoaID(int id){
-        String frase = "";
-        for(int i = 0; i < data.pessoas.size(); i++){
-            if(data.pessoas.get(i).getId()==id){
-                data.pessoas.remove(i);
-                frase = "Pessoa Removida com sucesso";
-            }else{
-                frase ="Pessoa não encontrada";
-            }
+        if(data.pessoas.get(id)!=null){
+            data.pessoas.remove(id);
+            System.out.println("Pessoa Removida com sucesso");
+        }else{
+            System.out.println("Pessoa não encontrada");
         }
-        System.out.println(frase);
     }
 
     public void atualizaPessoa(int id, Pessoa pessoa){
             data.pessoas.set(id,pessoa);
     }
 
-    public ArrayList<Pessoa> listaPessoa(){
+    public List<Pessoa> listaPessoa(){
         return data.pessoas;
     }
 }

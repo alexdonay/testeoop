@@ -9,7 +9,6 @@ public class Aluno extends Pessoa{
         super(nome, telefone, dataNascimento, dataCadastro, dataAlteracao);
         this.nota = nota;
     }
-
     public Double getNota() {
         return nota;
     }

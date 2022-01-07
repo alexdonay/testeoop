@@ -7,11 +7,11 @@ import controllers.validaData;
 import java.util.Date;
 import java.util.Scanner;
 
-public class PedeDados {
+public class Cadastra {
     String nome;
     String dataNascimento;
     String telefone;
-    String opNota;//String para definir a nota
+    String opNota;
     Double nota;
     final Scanner teclado = new Scanner(System.in);
     final DataBase dataBase = new DataBase();
@@ -25,6 +25,9 @@ public class PedeDados {
             do{
                 System.out.println("Digite a data de nascimento do Aluno ou Pessoa (dd/mm/aaaa):");
                 dataNascimento = teclado.next();
+                if(!validaData.valida(dataNascimento)){
+                    System.out.println("Data inválida");
+                }
             }while (!validaData.valida(dataNascimento));
             System.out.println("Digite o número de telefone:");
             telefone = teclado.next();
